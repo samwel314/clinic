@@ -1,0 +1,61 @@
+﻿@model Contact
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null ; 
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thank You</title>
+    <style>
+        /* Center the content on the page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Style for the container */
+        .container {
+            text-align: center;
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f7f7f7;
+        }
+
+        /* Style for the heading */
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        /* Style for the message */
+        p {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Style for the button */
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thank You  @Model.Name </h1>
+        <p>Your message has been sent successfully.</p>
+        <a asp-controller="Home" asp-action="Index">Back to Home</a>
+    </div>
+</body>
+</html>

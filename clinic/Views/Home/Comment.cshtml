@@ -1,0 +1,64 @@
+﻿@model Display 
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    if (TempData["name"] != null)
+    {
+        Layout = "../Shared/_login.cshtml";
+    }
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/seeall.css">
+}
+
+    <main>
+        <form method="post">
+
+        <div class="addcomment">
+            <h1>Commentes</h1>
+            <label  asp-for="Email">Enter email</label>
+            <input asp-for="Email" placeholder="Ex@gmail.com">
+                <span style="color : palevioletred" asp-validation-for="Email"></span>
+
+            <label for=""> Select Doctor</label>
+            <select asp-for="D_Email">
+                @{
+                    foreach (var d in Model.doctors)
+                    {
+                        <option value="@d.Email">@d.Email</option>
+                    }
+                }
+            </select>
+            <label asp-for="Comment">Your Comment</label>
+            <textarea asp-for="Comment" cols="14" rows="5" placeholder="Your comment"></textarea>
+                <span style="color : palevioletred" asp-validation-for="Comment"></span>
+
+            <button type="submit" style="font-size : 20px ; ">send</button>
+        </div>
+
+        </form>
+        <div class="commentscon">
+            <div class="commentvalue">
+
+                <!-- code c# { -->
+                @{
+                    foreach (var item in Model.comments)
+                    {
+                        <div class="comment">
+                            <div class="user">
+                                <div>UserName : <input type="text"  value="@item.P_Name" readonly></div>
+                                <div>Doctor : <input type="text" name="doccomment" value="@item.D_Name" readonly></div>
+                            </div>
+                            <p>@item.Message</p>
+                        </div>
+                    }
+                }
+                <!-- } -->
+
+         
+
+            </div>
+        </div>
+    </main>

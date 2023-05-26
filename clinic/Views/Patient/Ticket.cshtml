@@ -1,0 +1,41 @@
+﻿@model Ticket_Doctor_Patient
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null; 
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/ticket.css">
+</head>
+<body>
+    <div class="con">
+        <h1>Book an Appointment</h1>
+        <form id="appointment-form" method="post">
+            <select asp-for="EmailToContact.D_Email" >
+                @{
+                    foreach (var Email in Model.EmailToContact.Emails )
+                    {
+                        <option value="@Email">@Email</option>
+                    }
+                }
+            </select>
+
+
+            <label for="message">Message:</label>
+            <textarea asp-for="Ticket.Note"></textarea>
+
+            <input type="submit" value="Book Appointment">
+        </form>
+        <br>
+        <button> <a asp-controller="Patient" asp-action="Back">Back</a> </button>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿@model Doctor
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null ; 
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/doc.css">
+
+</head>
+<body>
+    <div class="con">
+        <div class="convalue">
+            <form method="post" enctype="multipart/form-data" >
+                <div class="groupe">
+                    <label asp-for="Fname">First Name<span>*</span></label>
+                    <input asp-for="Fname"  type="text" placeholder="First Name">
+                    <span style="color : palevioletred" asp-validation-for="Fname"></span>
+                </div>
+                <div class="groupe">
+                    <label asp-for="Lname">last Name<span>*</span></label>
+                    <input asp-for="Lname" type="text" placeholder="last Name">
+                    <span style="color : palevioletred" asp-validation-for="Lname"></span>
+                </div>
+                <div class="groupe">
+                    <label asp-for="Email">Email<span>*</span></label>
+                    <input asp-for="Email" type="email" placeholder="Ex@gmail.com">
+
+                    <span style="color : palevioletred" asp-validation-for="Email"></span>
+
+                </div>
+                <div class="groupe">
+                    <label asp-for="Phone">Phone number<span>*</span></label>
+                    <input asp-for="Phone" type="tel" placeholder="0122-345-6789" minlength="11" maxlength="11"
+                        pattern="01[0125][0-9]{8}">
+                    <span style="color : palevioletred" asp-validation-for="Phone"></span>
+
+                    </div>
+                <div class="groupe">
+                    <label asp-for="Password">password<span>*</span></label>
+                    <input asp-for="Password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password"
+                        placeholder="**********">
+                    <span style="color : palevioletred" asp-validation-for="Password"></span>
+
+                    </div>
+                <div class="groupe">
+                    <label for="">Your imege <span>*</span></label>
+                    <input name="file" type="file" />
+                     
+                </div>
+                <button type="submit">regester</button>
+                <!-- <button>Back</button> -->
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

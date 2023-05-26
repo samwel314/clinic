@@ -1,0 +1,87 @@
+﻿@model Patient
+
+
+@{
+
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="form2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/form2.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">Registration</div>
+      
+        <form method="post" >
+            <div class="user__details">
+                <div class="box">
+                    <label asp-for="Fname" class="details">Firest Name</label>
+                    <input asp-for="Fname">
+                    <span style="color : red" asp-validation-for="Fname"></span>
+                </div>
+                <div class="box">
+                    <label asp-for="Lname" class="details">last Name</label>
+                    <input asp-for="Lname">
+                    <span style="color : red" asp-validation-for="Lname"></span>
+                </div>
+                <div class="box">
+                    <label asp-for="Email" class="details">Email</label>
+                    <input type="email" placeholder="Ex@email.com" asp-for="Email">
+                    <span style="color : red" asp-validation-for="Email"></span>
+                </div>
+                <div class="box">
+                    <span class="details">Phone Number</span>
+                    <input type="tel" asp-for="Phone">
+                    <span style="color : red" asp-validation-for="Phone"></span>
+                </div>
+                <div class="box">
+                    <span class="details">Password</span>
+                    <input asp-for="Password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="********"
+                        title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+                    <span style="color : red" asp-validation-for="Password"></span>
+                    </div>
+                <div class="box">
+                    <span class="details">Confirm Password</span>
+                    <input style="color : red" asp-for="Confirm_Password" type="password" placeholder="********" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                </div>
+
+            </div>
+            <div class="gender__details">
+                <span class="gender__title">Gender</span>
+                <input type="radio" name="gender" id="dot-2" asp-for="Gender" value="Femal"}">
+                <input type="radio" name="gender" id="dot-1" asp-for="Gender" value="Male">
+                <div class="category">
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        <!-- <input type="radio" name="gender" id="dot-1"> -->
+                        <span>Male</span>
+                    </label>
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <!-- <input type="radio" name="gender" id="dot-2"> -->
+                        <span>Female</span>
+                    </label>
+
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Register" >
+            </div>
+           
+        </form>
+    </div>
+
+
+</body>
+
+</html>

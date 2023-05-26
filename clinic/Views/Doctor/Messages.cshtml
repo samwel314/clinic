@@ -1,0 +1,94 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null; 
+}
+@model List< Contact > 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table with Button</title>
+
+	<style>
+		body {
+			background-color: #f7f7f7;
+		}
+
+		table {
+			width: 100%;
+			max-width: 800px;
+			margin: 0 auto;
+			border-collapse: collapse;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+		}
+
+		th {
+			background-color: #007bff;
+			color: #fff;
+			font-size: 18px;
+			font-weight: normal;
+			text-align: left;
+			padding: 10px 20px;
+		}
+
+		td {
+			font-size: 16px;
+			padding: 10px 20px;
+			border-bottom: 1px solid #ccc;
+		}
+
+		button {
+			display: block;
+			margin: 20px auto;
+			padding: 10px 20px;
+			background-color: green;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+	</style>
+
+</head>
+<body>
+	<table>
+
+
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Message</th>
+				<th>Phone</th>
+			</tr>
+		</thead>
+		<tbody>
+			@{
+				foreach (var m in Model)
+				{
+					<tr>
+						<td>@m.Name</td>
+						<td>@m.Email</td>
+						<td>@m.Message </td>
+						<td>@m.Phone </td>
+					</tr>
+				}
+			}
+
+		</tbody>
+	</table>
+	<button> <a  asp-action="Back" style="color : white ; text-decoration : none" >Back</a> </button>
+</body>
+</html>
+
+
+            <!--
+
+
+
+
+    -->

@@ -1,0 +1,77 @@
+:root {
+    --main-blue: #a8d2ee;
+    --main-purple: #89a58c;
+    --main-grey: #ccc;
+    --sub-grey: #d9d9d9;
+}
+
+.con {
+    padding: 30px;
+    /* margin-top: 40px;     */
+    height: 100vh;
+    background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+}
+
+h1 {
+    text-align: center;
+  }
+  
+  form {
+    margin: auto;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  #appointment-form input[type="text"],
+  #appointment-form input[type="email"],
+  input[type="date"],
+  input[type="time"],
+  select,
+  textarea {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+button {
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width : 70px ; 
+    margin-left : 600px ; 
+}
+a{
+    text-decoration : none ; 
+    color : white ; 
+}
+
+  input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #3E8E41;
+  }
+  
+  input[type="submit"]:disabled {
+    background-color: #BDBDBD;
+    cursor: default;
+  }
+  

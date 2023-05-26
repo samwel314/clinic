@@ -1,0 +1,64 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Clinic</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication3.styles.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false)
+    @RenderSection("profile", required: false)
+    @RenderSection("docc", required: false)
+    @RenderSection("docc", required: false)
+    @RenderSection("contact", required: false)
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+
+                <div>
+                    <a class="q"><span>H</span>ealth <span>C</span>are.</a>
+                </div>
+
+                <div class="nav">
+                    <ul>
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Comment">Feed Back</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Doctor" asp-action="Contact">Contact Us</a>
+                        </li>
+
+                   
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="login">login</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Patient" asp-action="sign">Sign Up</a>
+                        </li> 
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

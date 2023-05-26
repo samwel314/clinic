@@ -1,0 +1,55 @@
+﻿@model EmailToContact
+@{
+    if (TempData["name"] != null)
+    {
+        Layout = "../Shared/_login.cshtml";
+    }
+}
+
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/contact.css">
+}
+
+
+
+    <div class="con">
+        @*<img src="~/img/doc.jpg" />*@
+        <div class="convalue">
+            <form method="post">
+                <div class="groupe">
+                    <label style="font-size:20px" asp-for="Contact.Name">Full Name</label>
+                <input style="font-size:17px" asp-for="Contact.Name" type="text" placeholder="Full Name">
+                    <span style="color : red" asp-validation-for="Contact.Name"></span>
+                </div>
+                <div class="groupe">
+                <label style="font-size:20px" asp-for="Contact.Email" for="">Email</label>
+                <input style="font-size:17px" asp-for="Contact.Email" type="email" placeholder="Ex@gmail.com">
+                    <span style="color : red" asp-validation-for="Contact.Email"></span>
+                </div>
+                <div class="groupe">
+                <label style="font-size:20px" asp-for="Contact.Phone">Phone number</label>
+                <input style="font-size:17px" asp-for="Contact.Phone" type="tel" placeholder="0122-345-6789" minlength="11" maxlength="11" pattern="01[0125][0-9]{8}">
+                    <span style="color : red" asp-validation-for="Contact.Phone"></span>
+                </div>
+                <div class="groupe">
+                <label style="font-size:20px" for="">Doctor</label>
+                <select style="font-size:20px" asp-for="D_Email">
+                        @{
+                            foreach (var Email in Model.Emails)
+                            {
+                                <option  value="@Email">@Email</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="groupe">
+                <label style="font-size:20px" asp-for="Contact.Message">Your Message</label>
+                <textarea style="font-size:17px" asp-for="Contact.Message" placeholder="Your Message" cols="50" rows="5" minlength="22"></textarea>
+                    <span style="color : red" asp-validation-for="Contact.Message"></span>
+                </div>
+            <button style="font-size:17px" type="submit">Send Message</button>
+     
+            </form>
+        </div>
+    </div>

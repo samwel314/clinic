@@ -1,0 +1,56 @@
+﻿@model AdminTicket 
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/aticket.css">
+<style>
+
+</style>
+
+</head>
+
+
+
+<body>
+    <div class="con">
+        <h1>Book an Appointment</h1>
+
+        <form method="post" >
+          
+            <label asp-for="Patient.Fname" >First Name</label>
+            <input asp-for="Patient.Fname" required>
+            <label asp-for="Patient.Lname">Last Name</label>
+            <input asp-for="Patient.Lname" required>
+            <label asp-for="Patient.Phone">Phone</label>
+            <input asp-for="Patient.Phone" required min="11" maxlength="11">
+            <label asp-for="D_Email">Select Doctor</label>
+            <select asp-for="D_Email">
+                @{
+                    foreach(var e in Model.Emails)
+                    {
+                        <option value="@e">@e</option>
+                    }
+                }
+            </select>
+
+
+            <label asp-for="Ticket.Note">Note :</label>
+            <textarea asp-for ="Ticket.Note">
+                </textarea>
+
+            <input type="submit" value="Book Appointment">
+        </form>
+        <button > <a asp-action="Back">Back</a></button>
+    </div>
+</body>
+</html>

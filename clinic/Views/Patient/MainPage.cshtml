@@ -1,0 +1,42 @@
+﻿@model Patient
+@*  
+For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Profile";
+    if (TempData["name"] != null)
+    {
+        Layout = "../Shared/_login.cshtml";
+    }
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/docc.css" />
+}
+
+<div class="lo"></div>
+
+<div class="con">
+    <h1>Patient  information</h1>
+    <div class="groupe">
+        <h2>Name</h2><input value="@String.Format($"{Model.Fname } {Model.Lname}")" readonly>
+    </div>
+    <div class="groupe">
+        <h2>email</h2> <input type="email" readonly asp-for="Email">
+    </div>
+    <div class="groupe">
+        <h2>Phone</h2><input type="tel" readonly asp-for="Phone">
+    </div>
+    <div class="btn1">
+        <button> <a asp-controller="Patient" asp-action="MyTickets" asp-route-P_ID="@Model.Id"> Show Ticket</a></button>
+        <button> <a asp-controller="Patient" asp-action="Ticket" asp-route-P_ID="@Model.Id"> Appointment </a></button>
+    </div>
+</div>
+
+<button class="btnna"> <a asp-controller="Home" asp-action="Logout"> Log Out</a></button>
+
+
+<!--
+    <button> <a asp-controller="Home" asp-action="Index">logout</a></button>
+    <button><a asp-controller="Patient" asp-action="Ticket" asp-route-P_ID="@Model.Id">Appointment ticket</a></button>
+    <button><a asp-controller="Patient" asp-action="MyTickets" asp-route-P_ID="@Model.Id">Show Tickets</a></button>
+-->

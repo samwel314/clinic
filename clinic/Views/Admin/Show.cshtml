@@ -1,0 +1,101 @@
+﻿@model List<TicketsData>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	Layout = null; 
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tickets </title>
+	<style>
+
+button {
+			background-color: #ffffff;
+			border: 1px solid #cccccc;
+			color: #333333;
+			padding: 10px 20px;
+			text-decoration: none;
+			font-size: 16px;
+			font-weight: bold;
+			border-radius: 5px;
+		}
+
+			button:hover {
+				background-color: #cccccc;
+				color: #ffffff;
+			}
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		a{
+			text-decoration : none ; 
+			color : black ; 
+		}
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border-bottom: 1px solid #ddd;
+		}
+
+		th {
+			background-color: #f2f2f2;
+		}
+		h1
+		{
+			margin :auto ; 
+			color : blueviolet ; 
+		}
+
+		td button {
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			padding: 8px 16px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 14px;
+			margin: 4px 2px;
+			cursor: pointer;
+			border-radius: 4px;
+		}
+	</style>
+</head>
+<body>
+	<h1>All  TicketS</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>TID</th>
+				<th>Dr-Name</th>
+				<th>Note </th>
+				<th>Status</th>
+				<th>Patient Name </th>
+			</tr>
+		</thead>
+		<tbody>
+			@{
+				foreach (var item in Model )
+				{
+					<tr>
+					<td>@item.Id  </td>
+						<td>@item.D_Name  </td>
+						<td>@(item.Note == "" ? "No Note": item.Note)   </td>
+						<td>@(item.Status == false ? "Not Progress" : "Done")   </td>
+						<td>@item.P_Name  </td>
+						<td><button> <a asp-action="Edit" asp-route-T_ID="@item.Id">Edit</a></button></td>
+					</tr>
+				}
+			}
+			
+		
+		</tbody>
+	</table>
+	<br>
+	<button> <a asp-action="Back" >Back</a></button>
+
+</body>
+</html>

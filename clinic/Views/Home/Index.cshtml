@@ -1,0 +1,120 @@
+﻿@model Display
+@{
+    if (TempData["name"] != null)
+    {
+        Layout = "../Shared/_login.cshtml";
+    }
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/Style.css" />
+}
+
+
+
+    <!-- header section start -->
+
+    <!-- header section end -->
+    <!-- home section start -->
+    <section class="home" id="home">
+        <div class="container">
+            <div class="row min-vh-100 align-items-center text-center text-md-left">
+                <div class="col-md-6 pr-md-5">
+                    <img src="~/img/Doctors-bro.png" width="100%" alt="">
+                </div>
+
+                <div class="col-md-6 pr-md-5 content">
+                    <h1><span>stay</span> safe, <span>stay </span>healthy.</h1>
+                    <h3>caring for you.</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- home section end -->
+    <!-- About section Start -->
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="row min-vh-100 align-items-center">
+
+                <div class="col-md-6 content">
+
+                    <div class="box">
+                        <h3> <i class="fas fa-ambulance"> </i>ambulance services</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, ea!</p>
+                    </div>
+
+                    <div class="box">
+                        <h3> <i class="fas fa-procedures"> </i> emergency rooms</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, ea!</p>
+                    </div>
+
+                    <div class="box">
+                        <h3> <i class="fas fa-stethoscope"> </i>free check-up </h3>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, ea!</p>
+                    </div>
+                </div>
+                <div class="col-md-6 d-none d-md-block">
+                    <img src="img/clipart-doctor-lady-doctor-11.png" width="100%" alt="">
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- About section end -->
+    <!--Facility section Start -->
+    <section class="facility" id="facility">
+        <div class="container">
+            <h1 class="heading"> <span>'</span> our facility <span>'</span></h1>
+            <div class="doc">
+
+                <div class="docvalue">                   
+                    @{
+                        foreach (var v in Model.doctors)
+                        {
+                            <div class="groupe">
+                                <img src="~/img/@v.Dr_picture" alt="">
+                                <div class="details">
+                                    <h3>@string.Format($"{v.Fname} {v.Lname}")</h3>
+                                </div>
+                            </div>
+                        }
+
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Facility section end -->
+    <!-- commments -->
+    <div class="commentscon">
+        <h1>What Our Clients Say</h1>
+        <div class="commentvalue">
+            @{
+                foreach (var c in Model.comments)
+                {
+
+                    <div class="comment">
+                        <div class="user">
+                        <div>UserName : <input value="@c.P_Name"  readonly></div>
+                        <div>Doctor : <input  value="@c.D_Name" readonly></div>
+                    </div>
+                    The comment :<p>
+                       @c.Message
+                    </p>
+                </div>
+                }
+            }
+         
+     
+        </div>
+        <div class="linkcom">
+            <a asp-controller="Home" asp-action="Comment">see all</a>
+        </div>
+    </div>
+
+
+
+
+

@@ -1,0 +1,51 @@
+﻿@model TicketToDoctor
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null ; 
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pishant's Tickets</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="~/css/viewticket.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>patient's Tickets</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ticket ID</th>
+                    <th>Note</th>
+                    <th>Status</th>
+                    <th >Assigned To</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var item in Model.Tickets)
+                    {
+                        <tr>
+                           <td>@item.Id</td>
+                            <td>@item.Note</td>
+                            <td>@(item.Status == false ? "Not Progress" : "Done")</td>
+                            <td>@item.P_Name</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        <button> <a asp-controller="Doctor" asp-action="actionResult" asp-route-D_ID="@Model.Doctor.Id">Back</a></button>
+
+    </div>
+</body>
+
+</html>
